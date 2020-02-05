@@ -9,34 +9,32 @@
    By considering the terms in the Fibonacci sequence whose values do not
    exceed four million, find the sum of the even-valued terms.
 '''
-
-fib_lib = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
-fib_lim = 4000000
-new_fib = fib_lib[-1]
-prev_fib = fib_lib[-2]
-sum = 0
+from utils.utils import iseven
 
 
-def iseven(val):
-    return val % 2 == 0
+def solve():
+    fib_lib = [1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+    fib_lim = 4000000
+    new_fib = fib_lib[-1]
+    prev_fib = fib_lib[-2]
+    sum = 0
 
+    # sum the even numbers from the initial library of fibonacci numbers
+    for x in fib_lib:
+        if iseven(x):
+            sum += x
 
-# sum the even numbers from the initial library of fibonacci numbers
-for x in fib_lib:
-    if iseven(x):
-        sum += x
+    # Construct and sum additional fibonacci numbers that are even up to the
+    # value defined in fib_lim
+    while new_fib < fib_lim:
+        # New fib number
+        temp_fib = new_fib + prev_fib
 
-# Construct and sum additional fibonacci numbers that are even up to the value
-# defined in fib_lim
-while new_fib < fib_lim:
-    # New fib number
-    temp_fib = new_fib + prev_fib
+        if iseven(temp_fib):
+            sum += temp_fib
 
-    if iseven(temp_fib):
-        sum += temp_fib
+        # update fibonacci place holders
+        prev_fib = new_fib
+        new_fib = temp_fib
 
-    # update fibonacci place holders
-    prev_fib = new_fib
-    new_fib = temp_fib
-
-print(sum)
+    print(sum)
