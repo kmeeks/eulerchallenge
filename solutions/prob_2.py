@@ -37,4 +37,4 @@ def solve():
         prev_fib = new_fib
         new_fib = temp_fib
 
-    print(sum)
+    return sum

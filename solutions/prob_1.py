@@ -14,4 +14,4 @@ def solve():
         if x % 3 == 0 or x % 5 == 0:
             sum += x
 
-    print(sum)
+    return sum

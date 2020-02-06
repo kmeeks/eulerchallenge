@@ -10,6 +10,18 @@
 from importlib import import_module
 from utils import exceptions
 from sys import argv
+import time
+from memory_profiler import profile
+
+
+@profile
+def solution_execution(function):
+    start = time.time()
+    result = function()
+    end = time.time()
+    print('Solution result: ', result)
+    print('total running time: ', end - start)
+
 
 if __name__ == '__main__':
     try:
@@ -22,7 +34,8 @@ if __name__ == '__main__':
 
         # Get the solution module and execute solve function
         solution_mod = import_module(f'solutions.{solution_name}')
-        solution_mod.solve()
+        solution_execution(solution_mod.solve)
+
     except (exceptions.MissingInputError) as e:
         print(e.message)
     except Exception as e:
