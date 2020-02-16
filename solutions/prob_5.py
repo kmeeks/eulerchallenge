@@ -26,7 +26,11 @@ def solve():
     lcm = 1
     
     for i in range(x, n + 1):
-        # get a dict of the prime factors for each value { factor: factor_count }
+        # This can be optimized by using the log method to calculate the exponents
+        # for each factor. For example, when k = 20, the exponent of the first primes
+        # factor, p[1] = 2, will be:
+        # a[1] = floor( log(20) / log(2) ) = floor( 4.32…) = 4 
+        # Get a dict of the prime factors for each value { factor: factor_count }
         prime_factors = get_prime_factors(i)
         # Keep a dict of the max number of prime factors for all values { factor: max_factor_count }
         set_max_factors(max_prime_factors, prime_factors)
