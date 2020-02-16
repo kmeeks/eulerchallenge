@@ -4,6 +4,8 @@
    2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.
 
    What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
+
+   To evaluate this, use principles of Least Common Multiple and utilize the max number of prime factors for each value.
 '''
 import math
 from utils.utils import get_prime_factors
