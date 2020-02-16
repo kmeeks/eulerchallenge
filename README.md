@@ -9,5 +9,5 @@ problems included in this project run:
 
     `python3 run.py prob_1`
 
-In the command above `prob_1` could be replaced with a reference to 
+In the command above `prob_1` could be replaced with a reference to
 any one of the solutions in the solutions directory.

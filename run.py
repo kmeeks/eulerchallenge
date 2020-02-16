@@ -12,6 +12,7 @@ from utils import exceptions
 from sys import argv
 import time
 from memory_profiler import profile
+import traceback
 
 
 @profile
@@ -39,4 +40,5 @@ if __name__ == '__main__':
     except (exceptions.MissingInputError) as e:
         print(e.message)
     except Exception as e:
-        print(e)
+        print('err: ', e)
+        traceback.print_exc()

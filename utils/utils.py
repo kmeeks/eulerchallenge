@@ -4,13 +4,8 @@
 '''
 import math
 
-def iseven(val):
-   '''iseven
-   Description: checks if a number is even
-   Parameter:
-      - val: any number
-   ''' 
-   return val % 2 == 0
+PRIMES_TPL = (2, 3, 5, 7, 11, 13, 17, 19, 23)
+
 
 def find_next_less_palindrome(number):
    '''find_next_less_palindrome
@@ -19,9 +14,10 @@ def find_next_less_palindrome(number):
    number, duplicating, reversing the duplicated number and appending it 
    back to the first half. The will find the next palindrome less than
    the number provided.
-
    Parameter:
-      - number: an integer
+      number - an integer
+   Returns:
+      palindrome - a string
    '''
    # Make the number a string for the purposes of manipulation
    numb_str = str(number)
@@ -37,10 +33,60 @@ def find_next_less_palindrome(number):
 
    return palindrome
 
+def get_prime_factors(val):
+   '''get_prime_factors
+
+   Description: returns a dictionary of prime factors for a value.
+   This function
+   Parameter:
+      val - a number
+   Returns:
+      dict - { factor: factor_count }
+   '''
+   prime_factors = dict()
+
+   if val in PRIMES_TPL:
+      prime_factors.setdefault(val, 1)
+   else:
+      limit = math.sqrt(val)
+      pi = 0
+      calc_val = val
+      while calc_val not in PRIMES_TPL and calc_val != 1:
+         # If calc val is divisible by a prime add it to the factors
+         # list and divid by the factor while setting calc_val to
+         # the result
+         if calc_val % PRIMES_TPL[pi] == 0:
+            calc_val /= PRIMES_TPL[pi]
+            factor_count = prime_factors.get(PRIMES_TPL[pi], 0) + 1
+            prime_factors[PRIMES_TPL[pi]] = factor_count
+         else:
+            pi += 1
+      
+      # Add calc_val to the factors list once it becomes prime
+      if calc_val != 1:
+         factor_count = prime_factors.get(calc_val, 0) + 1
+         prime_factors[calc_val] = factor_count
+
+   return prime_factors
+
+
+def iseven(val):
+   '''iseven
+
+   Description: checks if a number is even
+   Parameter:
+      val - any number
+   ''' 
+   return val % 2 == 0
+
 def ispalindrome(number):
    '''ispalindrome
    
    Description: Checks if a number is a palindrome
+   Parameter:
+      number - an integer
+   Returns:
+      boolean
    '''
    numb_str = str(number)
    rev_str = numb_str[::-1]
