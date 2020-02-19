@@ -91,3 +91,30 @@ def ispalindrome(number):
    numb_str = str(number)
    rev_str = numb_str[::-1]
    return numb_str == rev_str
+
+def isprime(num):
+   '''isprime
+
+   Description: determines if a given number is prime
+   '''
+   # Check if number is in Primes Tuple first
+   if num in PRIMES_TPL:
+      return True
+
+   # 23 is the last prime in the Primes Tuple so any other number less than
+   # 23 would not be Prime. Also check if divisible by 2 or 3
+   if num < 23 or num % 2 == 0 or num % 3 == 0:
+      return False
+
+   # If there's no number less than the sqrt(num) that can evenly divide num,
+   # then it is prime
+   x = 5
+   while x <= math.sqrt(num):
+      if num % x == 0 or num % (x + 2) == 0:
+         return False
+      # Increment by 6 since primes can be expressed as 6x +/- 1 when x > 4
+      x = x + 6
+   
+   return True
+
+   
