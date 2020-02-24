@@ -33,6 +33,29 @@ def find_next_less_palindrome(number):
 
    return palindrome
 
+
+def get_gcd(num, num2):
+   '''Gets the greatest common divisor using Euclidean algorithm
+      
+      Where q is the number of times the smaller_number and go into the
+      largest_number and r is the remainder
+        largest_number = smaller_number * q * r solved until r is 0
+   '''
+   ln = max(num, num2)
+   sn = min(num, num2)
+   r = 1
+   q = 0
+   while r != 0:
+      # Get the remainder first
+      r = ln % sn
+      q = math.floor(ln / sn)
+
+      ln = q
+      sn = r
+   
+   return q
+
+
 def get_prime_factors(val):
    '''get_prime_factors
 
@@ -79,6 +102,7 @@ def iseven(val):
    ''' 
    return val % 2 == 0
 
+
 def ispalindrome(number):
    '''ispalindrome
    
@@ -91,6 +115,7 @@ def ispalindrome(number):
    numb_str = str(number)
    rev_str = numb_str[::-1]
    return numb_str == rev_str
+
 
 def isprime(num):
    '''isprime
