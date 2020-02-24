@@ -8,6 +8,8 @@
 
     There exists exactly one Pythagorean triplet for which a + b + c = 1000.
     Find the product abc.
+
+    Solve using the relationships defined in Euclids formula
 '''
 import math
 
@@ -23,7 +25,6 @@ def solve():
     # For now leave as m = 2
     m = 2
     while c < sum_of_triple:
-        # now loop on j from 1 to i-1
         for n in range(1, m):
             a = (m * m) - (n * n)
             b = 2 * m * n
