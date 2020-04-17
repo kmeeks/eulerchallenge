@@ -22,14 +22,12 @@ def solve():
     # of factors we need to check.
     max_factor = math.sqrt(n)
     while n > 1 and factor <= max_factor:
-        print(f'checking factor: {factor}')
         # If n is divisible by a factor we need to update the last_factor to be 
         # equal to the current factor.
         while n % factor == 0:
             n /= factor
             last_factor = factor
             max_factor = math.sqrt(n)
-            print(f'n is now: {n}')
     
         # Increase the factor by 2 since evens would be divisible by 2
         factor += 2

@@ -7,12 +7,12 @@
 '''
 from utils.utils import prime_generator
 
-# TODO: This takes about 45s to run, should be refactored to a more intelligent solution
+# TODO: This takes about 46s to run, should be refactored to a more intelligent solution
 def solve():
     limit = 2000000
-    sum = 0
-
+    primes_sum = 0
+    
     for p in prime_generator():
         if p >= limit:
-            return sum
-        sum += p
+            return primes_sum
+        primes_sum += p

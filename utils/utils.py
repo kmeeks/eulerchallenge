@@ -144,9 +144,12 @@ def isprime(num):
 
    
 def prime_generator():
-   x = 5
-
+   # Start by yielding the primes in PRIME_TUPLE
+   for p in PRIMES_TPL:
+      yield p
+   
    # Primes can be expressed as 6x +/- 1 when x > 4 (23 already included)
+   x = 5
    while True:
       check = 6 * x
       check_low = check - 1
