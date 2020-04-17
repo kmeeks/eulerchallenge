@@ -143,3 +143,18 @@ def isprime(num):
    return True
 
    
+def prime_generator():
+   x = 5
+
+   # Primes can be expressed as 6x +/- 1 when x > 4 (23 already included)
+   while True:
+      check = 6 * x
+      check_low = check - 1
+      if isprime(check_low):
+         yield check_low
+
+      check_hi = check + 1
+      if isprime(check_hi):
+         yield check_hi
+
+      x += 1

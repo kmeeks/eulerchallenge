@@ -18,12 +18,13 @@ def solve():
         n /= 2
 
     factor = 3
+    # We can also set the max factor to the square root of n to reduce the number
+    # of factors we need to check.
     max_factor = math.sqrt(n)
     while n > 1 and factor <= max_factor:
         print(f'checking factor: {factor}')
         # If n is divisible by a factor we need to update the last_factor to be 
-        # equal to the current factor. We can also set the max factor to the 
-        # square root of n to reduce the number of factors we need to check.
+        # equal to the current factor.
         while n % factor == 0:
             n /= factor
             last_factor = factor
