@@ -108,7 +108,7 @@ def isprime(num):
 
    # 23 is the last prime in the Primes Tuple so any other number less than
    # 23 would not be Prime. Also check if divisible by 2 or 3
-   if num < 23 or num % 2 == 0 or num % 3 == 0:
+   if num <= 23 or num % 2 == 0 or num % 3 == 0:
       return False
 
    # If there's no number less than the sqrt(num) that can evenly divide num,
@@ -118,7 +118,7 @@ def isprime(num):
       if num % x == 0 or num % (x + 2) == 0:
          return False
       # Increment by 6 since primes can be expressed as 6x +/- 1 when x > 4
-      x = x + 6
+      x += 6
    
    return True
 
